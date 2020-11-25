@@ -1,0 +1,176 @@
+
+
+
+<MusicPlayer>:
+    status: status_text
+    play_button: play_button
+    stop_button: stop_button
+    time_bar: time_bar
+    time_text: time_text
+    low_bar: low_bar
+    low_text: low_text
+    mid_bar: mid_bar
+    mid_text: mid_text
+    high_bar: high_bar
+    high_text: high_text
+    pitch_bar: pitch_bar
+    pitch_text: pitch_text
+    volume_bar: volume_bar
+    volume_text: volume_text
+    orientation: 'vertical'
+
+    
+
+
+    BoxLayout:
+        size_hint: 1, 0.2
+
+        Button:
+            text: 'Choose File'
+            #on_release: root.choose()
+            on_release: root.FileSelect()
+
+
+
+    BoxLayout:
+        size_hint: 1, 0.1
+
+        Label:
+            id: low_lavel
+            size_hint: 0.1, 1
+            text: 'low'
+        Label:
+            id: low_text
+            size_hint: 0.1, 1
+            text: '100'
+
+        Slider:
+            id: low_bar
+            size_hint: 0.8, 1
+            max: 100
+            value: 100
+            on_value: root.low_change(self.value)
+    BoxLayout:
+        size_hint: 1, 0.1
+
+        Label:
+            id: mid_lavel
+            size_hint: 0.1, 1
+            text: 'mid'
+        Label:
+            id: mid_text
+            size_hint: 0.1, 1
+            text: '100'
+
+        Slider:
+            id: mid_bar
+            size_hint: 0.8, 1
+            max: 100
+            value: 100
+            on_value: root.mid_change(self.value)
+    BoxLayout:
+        size_hint: 1, 0.1
+
+        Label:
+            id: high_lavel
+            size_hint: 0.1, 1
+            text: 'high'
+        Label:
+            id: high_text
+            size_hint: 0.1, 1
+            text: '100'
+
+        Slider:
+            id: high_bar
+            size_hint: 0.8, 1
+            max: 100
+            value: 100
+            on_value: root.high_change(self.value)
+
+    BoxLayout:
+        size_hint: 1, 0.05
+
+    BoxLayout:
+        size_hint: 1, 0.1
+
+        Label:
+            id: pitch_lavel
+            size_hint: 0.1, 1
+            text: 'pitch'
+        Label:
+            id: pitch_text
+            size_hint: 0.1, 1
+            text: '0'
+
+        Slider:
+            id: pitch_bar
+            size_hint: 0.8, 1
+            max: 12
+            value: 0
+            min: -12
+            on_value: root.pitch_change(self.value)
+
+    BoxLayout:
+        size_hint: 1, 0.05
+
+    BoxLayout:
+        size_hint: 1, 0.2
+
+        Button:
+            size_hint: 0.8,1
+            id: play_button
+            text: 'Pause'
+            on_release: root.play_or_stop()
+
+        Button:
+            size_hint: 0.2,1
+            id: stop_button
+            text: 'Stop'
+            on_release: root.stop()
+
+    BoxLayout:
+        size_hint: 1, 0.05
+
+
+
+    BoxLayout:
+        size_hint: 1, 0.1
+
+        Label:
+            size_hint: 0.5,1
+            id: status_text
+            text: ''
+
+        Label:
+            size_hint:0.1,1
+            id: volume_lavel
+            text: 'Volume'
+
+        Label:
+            size_hint: 0.1,1
+            id: volume_text
+            text: '100'
+
+
+
+        Slider:
+            size_hint:0.3,1
+            id: volume_bar
+            max: 100
+            value: 100
+            on_value: root.volume_change(self.value)
+
+    BoxLayout:
+        size_hint: 1, 0.1
+
+        Label:
+            id: time_text
+            size_hint: 0.2, 1
+            text: '0:00/0:00'
+
+        Slider:
+            id: time_bar
+            size_hint: 0.8, 1
+            max: 100
+            value: 0
+            on_value: root.time_change(self.value)
